@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-MarketingOS — AI 에이전트가 24 시간 영업과 마케팅을 대신한다</title>
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    /* Hero Section */
+    .hero {
+      padding: var(--spacing-xxl) 0;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+    }
+
+    /* Core Benefits Section */
+    .benefits-section {
+      padding: var(--spacing-xl) 0;
+      background-color: #FFFFFF;
+    }
+
+    .benefits-section h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .benefits-section p {
+      color: var(--color-text-secondary);
+      font-size: 0.9375rem;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xl);
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .hero-subheadline {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+    }
+
+    /* Proof Row */
+    .proof-row {
+      padding: var(--spacing-lg) 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .proof-row p {
+      text-align: center;
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .proof-logos {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-lg);
+      flex-wrap: wrap;
+      opacity: 0.6;
+    }
+
+    .proof-logos img {
+      height: 32px;
+      object-fit: contain;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--color-surface);
+    }
+
+    .pricing-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .pricing-section p {
+      text-align: center;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .features li {
+      padding: var(--spacing-xs) 0;
+      color: var(--color-text-secondary);
+      font-size: 0.9375rem;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: var(--color-secondary);
+      margin-right: var(--spacing-xs);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: var(--spacing-xxl) 0;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--spacing-md) 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .faq-answer {
+      color: var(--color-text-secondary);
+      font-size: 0.9375rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: var(--spacing-xl) 0;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .footer p {
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+    }
+
+    /* Loading Skeleton */
+    .skeleton {
+      background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: var(--radius-sm);
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-image {
+        width: 100%;
+        min-width: auto;
+        margin-top: var(--spacing-xl);
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>AI 에이전트가 24 시간 영업과 마케팅을 대신한다.</h1>
+          <p class="hero-subheadline">Everything You Need to Grow, All in One Place. 마케팅, 영업, CRM 을 하나의 플랫폼에서 자동화하세요.</p>
+          <div style="display: flex; gap: var(--spacing-sm); justify-content: center; @media (max-width: 768px) { flex-direction: column; }">
+            <a href="#pricing" class="btn btn-primary">Start Free Trial on Growth</a>
+            <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Placeholder for AI agent illustration -->
+          <img src="https://placehold.co/600x400/F9FAFB/111827?text=AI+MarketingOS+Dashboard" alt="AI-MarketingOS Dashboard Preview">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Benefits -->
+  <section class="benefits-section">
+    <div class="container">
+      <div style="display: grid; gap: var(--spacing-md); @media (max-width: 768px) { grid-template-columns: 1fr; }">
+        <div style="padding: var(--spacing-md); background-color: #F9FAFB; border-radius: var(--radius-lg);">
+          <h3 style="margin-bottom: var(--spacing-xs); color: #111827;">AI 에이전트가 24 시간 영업과 마케팅을 대신한다.</h3>
+          <p style="color: var(--color-text-secondary);">Vonza-style 올인원 플랫폼으로 마케팅, 영업, CRM 을 하나의 화면에서 자동화하세요.</p>
+        </div>
+        <div style="padding: var(--spacing-md); background-color: #F9FAFB; border-radius: var(--radius-lg);">
+          <h3 style="margin-bottom: var(--spacing-xs); color: #111827;">AWS 호스팅 기반 보안 배지, 고객 로고로 신뢰도 확보</h3>
+          <p style="color: var(--color-text-secondary);">SOC2, GDPR 준수 및 주요 파트너 로고로 기업 수준의 보안과 신뢰를 제공합니다.</p>
+        </div>
+        <div style="padding: var(--spacing-md); background-color: #F9FAFB; border-radius: var(--radius-lg);">
+          <h3 style="margin-bottom: var(--spacing-xs); color: #111827;">Starter/Growth/Business/School 4 티어 구독 플랜, 언제든 취소 가능</h3>
+          <p style="color: var(--color-text-secondary);">팀 규모와 필요에 맞는 플랜을 선택하세요. 언제든지 구독을 취소할 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof Row -->
+  <section class="proof-row">
+    <div class="container">
+      <p>Trusted by teams at companies using AWS infrastructure</p>
+      <div class="proof-logos">
+        <!-- Placeholder logos -->
+        <img src="https://placehold.co/120x32/F5F5F5/6B7280?text=AWS" alt="AWS">
+        <img src="https://placehold.co/120x32/F5F5F5/6B7280?text=SOC2" alt="SOC2">
+        <img src="https://placehold.co/120x32/F5F5F5/6B7280?text=GDPR" alt="GDPR">
+        <img src="https://placehold.co/120x32/F5F5F5/6B7280?text=Stripe" alt="Stripe">
+        <img src="https://placehold.co/120x32/F5F5F5/6B7280?text=Slack" alt="Slack">
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <h2>Simple, Transparent Pricing</h2>
+      <p>Start with a free trial and upgrade when you're ready. No hidden fees.</p>
+      
+      <div class="pricing-grid">
+        <!-- Starter Plan -->
+        <article class="card pricing-card">
+          <h3>Starter</h3>
+          <div class="price">$99<span>/month</span></div>
+          <ul class="features">
+            <li>1 Team Member</li>
+            <li>2 Communities</li>
+            <li>10 Plans Included</li>
+            <li>Email Support</li>
+          </ul>
+          <a href="#" class="btn btn-secondary" style="width: 100%;">Start Free Trial</a>
+        </article>
+
+        <!-- Growth Plan (Most Popular) -->
+        <article class="card pricing-card popular">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%);">
+            <span class="badge badge-popular">Most Popular</span>
+          </div>
+          <h3>Growth</h3>
+          <div class="price">$199<span>/month</span></div>
+          <ul class="features">
+            <li>5 Team Members</li>
+            <li>5 Websites</li>
+            <li>20 Plans Included</li>
+            <li>Prioritized Support</li>
+          </ul>
+          <a href="#" class="btn btn-primary" style="width: 100%;">Start Free Trial</a>
+        </article>
+
+        <!-- Business Plan -->
+        <article class="card pricing-card">
+          <h3>Business</h3>
+          <div class="price">$299<span>/month</span></div>
+          <ul class="features">
+            <li>25 Team Members</li>
+            <li>1,000 Communities</li>
+            <li>Unlimited Plans</li>
+            <li>Dedicated Account Manager</li>
+          </ul>
+          <a href="#" class="btn btn-secondary" style="width: 100%;">Start Free Trial</a>
+        </article>
+
+        <!-- School Plan -->
+        <article class="card pricing-card">
+          <h3>School</h3>
+          <div class="price">$399<span>/month</span></div>
+          <ul class="features">
+            <li>50 Team Members</li>
+            <li>Vonza AI Included</li>
+            <li>Custom Branding</li>
+            <li>Onboarding Session</li>
+          </ul>
+          <a href="#" class="btn btn-secondary" style="width: 100%;">Start Free Trial</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="how-it-works" class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <p class="faq-question">Do I need any technical expertise?</p>
+        <p class="faq-answer">None needed. AI-MarketingOS is designed to be user-friendly, with intuitive dashboards and automated workflows that require no coding knowledge.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Where is my data hosted?</p>
+        <p class="faq-answer">All data is securely hosted on AWS infrastructure with SOC2 and GDPR compliance. Your information is encrypted both in transit and at rest.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Can I cancel anytime?</p>
+        <p class="faq-answer">Yes, absolutely. There are no long-term contracts or hidden fees. Cancel your subscription with a single click and we'll process it immediately.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">What happens during my free trial?</p>
+        <p class="faq-answer">During your 14-day free trial, you get full access to all Growth plan features. No credit card required to start. Upgrade when you're ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AI-MarketingOS. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
